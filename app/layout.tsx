@@ -1,6 +1,7 @@
-
+// app/layout.tsx
 import './globals.css';
 import { ReactNode } from 'react';
+import Sidebar from '../components/Sidebar';
 
 export const metadata = {
   title: 'Next.js Dashboard App',
@@ -10,7 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-100 text-gray-900">{children}</body>
+      <body className="flex bg-gray-100 text-gray-900">
+        <Sidebar />
+        <div className="flex-1">{children}</div>
+      </body>
     </html>
   );
 }
