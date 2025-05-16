@@ -1,9 +1,19 @@
+// app/dashboard/page.tsx
+import DashboardCard from '../../components/DashboardCard';
 
 export default function DashboardPage() {
+  const stats = [
+    { title: 'Users', value: '1,245' },
+    { title: 'Revenue', value: '$12,345' },
+    { title: 'Orders', value: '321' },
+    { title: 'Refunds', value: '12' },
+  ];
+
   return (
-    <main className="p-8">
-      <h1 className="text-2xl font-semibold">Dashboard</h1>
-      <p className="text-gray-600">This is the dashboard page.</p>
-    </main>
+    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4">
+      {stats.map((item) => (
+        <DashboardCard key={item.title} title={item.title} value={item.value} />
+      ))}
+    </div>
   );
 }
